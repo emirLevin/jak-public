@@ -19,6 +19,7 @@
 
       --background: #1e2429;
       --background-deep: #181d21;
+      --section-alternate: #222a30;
       --surface: #2a3038;
       --surface-light: #323941;
       --accent: #24e8d6;
@@ -26,7 +27,7 @@
       --text: #ffffff;
       --muted: #aeb8bf;
       --border: rgba(255, 255, 255, 0.08);
-      --shadow: rgba(0, 0, 0, 0.28);
+      --shadow: rgba(0, 0, 0, 0.3);
     }
 
     * {
@@ -40,13 +41,8 @@
     body {
       margin: 0;
       min-width: 320px;
-      background:
-        radial-gradient(
-          circle at 75% 8%,
-          rgba(36, 232, 214, 0.1),
-          transparent 28rem
-        ),
-        var(--background);
+      overflow-x: hidden;
+      background: var(--background);
       color: var(--text);
       font-family:
         Inter,
@@ -76,6 +72,7 @@
       position: relative;
       z-index: 10;
       padding: 24px 0;
+      background: var(--background);
     }
 
     .navigation {
@@ -125,11 +122,23 @@
     }
 
     .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 77% 28%,
+          rgba(36, 232, 214, 0.13),
+          transparent 28rem
+        ),
+        var(--background);
+    }
+
+    .hero-layout {
       display: grid;
       grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
       align-items: center;
       gap: clamp(48px, 9vw, 120px);
-      min-height: 650px;
+      min-height: 720px;
       padding: 70px 0 110px;
     }
 
@@ -148,6 +157,7 @@
     .eyebrow::before {
       width: 7px;
       height: 7px;
+      flex: 0 0 7px;
       border-radius: 50%;
       background: var(--accent);
       content: "";
@@ -205,10 +215,18 @@
       color: var(--background-deep);
     }
 
+    .button-primary:hover {
+      background: #52ede0;
+    }
+
     .button-secondary {
       border-color: var(--border);
       background: var(--surface);
       color: var(--text);
+    }
+
+    .button-secondary:hover {
+      border-color: rgba(36, 232, 214, 0.3);
     }
 
     .availability {
@@ -217,75 +235,88 @@
       font-size: 0.86rem;
     }
 
-    .app-preview {
+    /*
+      Phone frame
+
+      Screenshots are displayed in full. There is no fixed height or clipping,
+      so the complete app screen remains visible inside the frame.
+    */
+
+    .phone-stage {
       position: relative;
       display: flex;
       justify-content: center;
-      width: min(100%, 390px);
-      margin-inline: auto;
+      width: 100%;
     }
 
-    .app-preview::before {
+    .phone-stage::before {
       position: absolute;
-      inset: 12% -20%;
-      z-index: -1;
+      inset: 15% 0;
+      z-index: 0;
       border-radius: 50%;
-      background: rgba(36, 232, 214, 0.13);
-      filter: blur(75px);
+      background: rgba(36, 232, 214, 0.12);
+      filter: blur(70px);
       content: "";
     }
 
-    .real-device {
+    .phone-frame {
       position: relative;
-      overflow: hidden;
+      z-index: 1;
+      width: min(100%, 340px);
       padding: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 44px;
-      background: #111619;
+      background: #101417;
       box-shadow:
-        0 35px 80px rgba(0, 0, 0, 0.34),
-        0 0 0 1px rgba(0, 0, 0, 0.25);
+        0 36px 85px rgba(0, 0, 0, 0.38),
+        0 0 0 1px rgba(0, 0, 0, 0.26);
     }
 
-    .real-device::before {
+    .phone-frame::before {
       position: absolute;
       top: 18px;
       left: 50%;
-      z-index: 2;
+      z-index: 3;
       width: 64px;
       height: 6px;
-      border-radius: 99px;
-      background: rgba(0, 0, 0, 0.55);
+      border-radius: 999px;
+      background: rgba(5, 7, 8, 0.82);
       content: "";
       transform: translateX(-50%);
     }
 
-    .real-device img {
+    .phone-frame::after {
+      position: absolute;
+      right: -3px;
+      top: 155px;
+      width: 3px;
+      height: 80px;
+      border-radius: 0 3px 3px 0;
+      background: rgba(255, 255, 255, 0.17);
+      content: "";
+    }
+
+    .phone-frame img {
       width: 100%;
       height: auto;
       border-radius: 34px;
+      background: var(--background);
     }
 
-    .real-device-hero {
-      width: min(100%, 340px);
-      max-height: none;
-    }
-
-    .real-device-hero img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
+    .hero-phone {
+      width: min(100%, 330px);
     }
 
     .interface-label {
       position: absolute;
-      right: -18px;
-      bottom: 50px;
-      z-index: 3;
+      right: -8px;
+      bottom: 55px;
+      z-index: 4;
       padding: 9px 13px;
       border: 1px solid rgba(36, 232, 214, 0.25);
       border-radius: 12px;
-      background: rgba(30, 36, 41, 0.92);
+      background: rgba(30, 36, 41, 0.93);
       color: var(--accent);
       font-size: 0.72rem;
       font-weight: 750;
@@ -294,16 +325,136 @@
       backdrop-filter: blur(12px);
     }
 
+    /*
+      Alternating product sections
+    */
+
+    .product-section {
+      position: relative;
+      padding: 110px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .product-section-tone-one {
+      background: var(--background-deep);
+    }
+
+    .product-section-tone-two {
+      background:
+        radial-gradient(
+          circle at 18% 50%,
+          rgba(36, 232, 214, 0.055),
+          transparent 28rem
+        ),
+        var(--section-alternate);
+    }
+
+    .product-section-tone-three {
+      background:
+        radial-gradient(
+          circle at 82% 48%,
+          rgba(36, 232, 214, 0.05),
+          transparent 28rem
+        ),
+        var(--background);
+    }
+
+    .product-layout {
+      display: grid;
+      grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.1fr);
+      align-items: center;
+      gap: clamp(55px, 10vw, 135px);
+    }
+
+    .product-layout-reverse .product-visual {
+      order: 2;
+    }
+
+    .product-layout-reverse .product-content {
+      order: 1;
+    }
+
+    .product-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .product-phone {
+      width: min(100%, 330px);
+      transition: transform 250ms ease;
+    }
+
+    .product-phone:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-content {
+      max-width: 560px;
+    }
+
+    .product-number {
+      display: grid;
+      width: 43px;
+      height: 43px;
+      place-items: center;
+      margin-bottom: 28px;
+      border-radius: 14px;
+      background: rgba(36, 232, 214, 0.12);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .product-content h2 {
+      margin: 0;
+      font-size: clamp(2.1rem, 5vw, 3.6rem);
+      line-height: 1.06;
+      letter-spacing: -0.045em;
+    }
+
+    .product-content > p {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .product-points {
+      display: grid;
+      gap: 14px;
+      margin: 30px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .product-points li {
+      position: relative;
+      padding-left: 28px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .product-points li::before {
+      position: absolute;
+      top: 0.59em;
+      left: 1px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      content: "";
+      box-shadow: 0 0 13px rgba(36, 232, 214, 0.45);
+    }
+
     .section {
-      padding: 100px 0;
+      padding: 105px 0;
     }
 
     .section-header {
-      max-width: 670px;
-      margin-bottom: 46px;
+      max-width: 680px;
+      margin-bottom: 48px;
     }
 
-    h2 {
+    .section-header h2 {
       margin: 0;
       font-size: clamp(2rem, 5vw, 3.4rem);
       line-height: 1.08;
@@ -316,138 +467,13 @@
       font-size: 1.05rem;
     }
 
-    .screen-showcase {
-      overflow: hidden;
-      background:
-        linear-gradient(
-          180deg,
-          transparent,
-          rgba(36, 232, 214, 0.025) 35%,
-          transparent
-        );
-    }
+    /*
+      Feature cards
+    */
 
-    .showcase-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .showcase-card {
-      min-width: 0;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      background: var(--surface);
-      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.16);
-    }
-
-    .showcase-card-wide {
-      display: grid;
-      grid-column: 1 / -1;
-      grid-template-columns: minmax(280px, 0.8fr) minmax(320px, 1.2fr);
-      align-items: center;
-    }
-
-    .screenshot-window {
-      position: relative;
-      display: block;
-      height: 520px;
-      overflow: hidden;
+    .features-section {
       background: var(--background-deep);
-    }
-
-    .screenshot-window::after {
-      position: absolute;
-      inset: auto 0 0;
-      height: 90px;
-      pointer-events: none;
-      background:
-        linear-gradient(
-          to bottom,
-          transparent,
-          rgba(30, 36, 41, 0.9)
-        );
-      content: "";
-    }
-
-    .screenshot-window img {
-      width: 100%;
-      height: auto;
-      transition:
-        transform 350ms ease,
-        filter 350ms ease;
-      transform-origin: top center;
-    }
-
-    .screenshot-window:hover img {
-      transform: scale(1.018);
-      filter: brightness(1.04);
-    }
-
-    .showcase-card-wide .screenshot-window {
-      height: 650px;
-      border-right: 1px solid var(--border);
-    }
-
-    .showcase-copy {
-      padding: clamp(26px, 5vw, 48px);
-    }
-
-    .showcase-card:not(.showcase-card-wide) .showcase-copy {
-      min-height: 260px;
-    }
-
-    .showcase-number {
-      display: grid;
-      width: 40px;
-      height: 40px;
-      place-items: center;
-      margin-bottom: 25px;
-      border-radius: 13px;
-      background: rgba(36, 232, 214, 0.12);
-      color: var(--accent);
-      font-size: 0.8rem;
-      font-weight: 800;
-    }
-
-    .showcase-copy h3 {
-      margin: 0;
-      font-size: clamp(1.3rem, 3vw, 2rem);
-      line-height: 1.18;
-      letter-spacing: -0.025em;
-    }
-
-    .showcase-copy p {
-      margin: 16px 0 0;
-      color: var(--muted);
-    }
-
-    .showcase-points {
-      display: grid;
-      gap: 11px;
-      margin: 26px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .showcase-points li {
-      position: relative;
-      padding-left: 25px;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .showcase-points li::before {
-      position: absolute;
-      top: 0.64em;
-      left: 1px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent);
-      content: "";
-      box-shadow: 0 0 12px rgba(36, 232, 214, 0.42);
+      border-top: 1px solid var(--border);
     }
 
     .feature-grid {
@@ -461,6 +487,14 @@
       border: 1px solid var(--border);
       border-radius: 24px;
       background: var(--surface);
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(36, 232, 214, 0.2);
+      transform: translateY(-3px);
     }
 
     .feature-number {
@@ -487,6 +521,15 @@
       font-size: 0.94rem;
     }
 
+    /*
+      Privacy section
+    */
+
+    .privacy-section {
+      background: var(--section-alternate);
+      border-top: 1px solid var(--border);
+    }
+
     .privacy-card {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -505,7 +548,10 @@
     }
 
     .privacy-card h2 {
+      margin: 0;
       font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.1;
+      letter-spacing: -0.035em;
     }
 
     .privacy-card p {
@@ -517,6 +563,7 @@
     footer {
       padding: 34px 0 44px;
       border-top: 1px solid var(--border);
+      background: var(--background-deep);
     }
 
     .footer-content {
@@ -548,41 +595,43 @@
       outline-offset: 4px;
     }
 
-    @media (max-width: 850px) {
-      .hero {
+    @media (max-width: 900px) {
+      .hero-layout {
         grid-template-columns: 1fr;
-        padding-top: 55px;
+        padding-top: 60px;
       }
 
-      .app-preview {
-        width: min(100%, 370px);
+      .hero-content {
+        max-width: 720px;
       }
 
-      .showcase-grid {
+      .phone-stage {
+        width: min(100%, 390px);
+        margin-inline: auto;
+      }
+
+      .product-layout,
+      .product-layout-reverse {
         grid-template-columns: 1fr;
+        gap: 55px;
       }
 
-      .showcase-card-wide {
-        display: block;
-        grid-column: auto;
+      .product-layout .product-visual,
+      .product-layout-reverse .product-visual {
+        order: 2;
       }
 
-      .showcase-card-wide .screenshot-window {
-        height: 560px;
-        border-right: 0;
-        border-bottom: 1px solid var(--border);
+      .product-layout .product-content,
+      .product-layout-reverse .product-content {
+        order: 1;
       }
 
-      .screenshot-window {
-        height: 520px;
-      }
-
-      .interface-label {
-        right: -4px;
+      .product-content {
+        max-width: 680px;
       }
 
       .feature-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .privacy-card {
@@ -596,7 +645,7 @@
       }
 
       .site-header {
-        padding-top: 18px;
+        padding: 18px 0;
       }
 
       .nav-links {
@@ -607,7 +656,7 @@
         display: none;
       }
 
-      .hero {
+      .hero-layout {
         min-height: auto;
         padding: 55px 0 80px;
       }
@@ -620,45 +669,55 @@
         width: 100%;
       }
 
-      .real-device-hero {
-        width: min(88%, 330px);
-        max-height: none;
+      .phone-stage {
+        width: 100%;
       }
 
-      .real-device {
+      .phone-frame,
+      .hero-phone,
+      .product-phone {
+        width: min(88vw, 330px);
+      }
+
+      .phone-frame {
         padding: 8px;
-        border-radius: 38px;
+        border-radius: 39px;
       }
 
-      .real-device img {
-        border-radius: 30px;
+      .phone-frame::before {
+        top: 15px;
+        width: 56px;
+        height: 5px;
+      }
+
+      .phone-frame img {
+        border-radius: 31px;
       }
 
       .interface-label {
-        right: 0;
+        right: 2px;
         bottom: 38px;
       }
 
+      .product-section {
+        padding: 78px 0;
+      }
+
+      .product-layout,
+      .product-layout-reverse {
+        gap: 42px;
+      }
+
+      .product-content h2 {
+        font-size: clamp(2rem, 11vw, 3rem);
+      }
+
       .section {
-        padding: 76px 0;
+        padding: 78px 0;
       }
 
-      .showcase-card,
-      .showcase-card-wide {
-        border-radius: 23px;
-      }
-
-      .showcase-card-wide .screenshot-window,
-      .screenshot-window {
-        height: 460px;
-      }
-
-      .showcase-copy {
-        padding: 26px 22px 30px;
-      }
-
-      .showcase-card:not(.showcase-card-wide) .showcase-copy {
-        min-height: auto;
+      .feature-grid {
+        grid-template-columns: 1fr;
       }
 
       .footer-content {
@@ -678,7 +737,7 @@
         transition-duration: 0.01ms !important;
       }
 
-      .screenshot-window:hover img {
+      .product-phone:hover {
         transform: none;
       }
     }
@@ -700,122 +759,136 @@
       </a>
 
       <nav class="nav-links" aria-label="Main navigation">
-        <a href="#screens">App preview</a>
+        <a href="#workouts">Workouts</a>
+        <a href="#logging">Logging</a>
+        <a href="#progress">Progress</a>
         <a href="#features">Features</a>
-        <a href="#privacy">Privacy</a>
         <a href="privacy-policy/">Privacy policy</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="container hero">
-      <div>
-        <p class="eyebrow">Workout tracking for Android</p>
+    <!-- Hero -->
 
-        <h1>
-          Train your way.<br>
-          <span class="accent-text">Track what matters.</span>
-        </h1>
+    <section class="hero">
+      <div class="container hero-layout">
+        <div class="hero-content">
+          <p class="eyebrow">Workout tracking for Android</p>
 
-        <p class="hero-copy">
-          JAK is a focused workout tracker for building routines, recording
-          sets and following your progress—without accounts, advertising or
-          unnecessary distractions.
-        </p>
+          <h1>
+            Train your way.<br>
+            <span class="accent-text">Track what matters.</span>
+          </h1>
 
-        <div class="hero-actions">
-          <a class="button button-primary" href="#screens">
-            Explore JAK
-          </a>
+          <p class="hero-copy">
+            JAK is a focused workout tracker for building routines, recording
+            sets and following your progress—without accounts, advertising or
+            unnecessary distractions.
+          </p>
 
-          <a class="button button-secondary" href="privacy-policy/">
-            Read privacy policy
-          </a>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#workouts">
+              Explore JAK
+            </a>
+
+            <a class="button button-secondary" href="privacy-policy/">
+              Read privacy policy
+            </a>
+          </div>
+
+          <p class="availability">
+            Designed for Android. Google Play availability coming soon.
+          </p>
         </div>
 
-        <p class="availability">
-          Designed for Android.
-        </p>
-      </div>
+        <div class="phone-stage">
+          <div class="phone-frame hero-phone">
+            <img
+              src="assets/jak-home.png"
+              alt="JAK home screen showing a weekly workout goal and personal record"
+              width="988"
+              height="2220"
+              loading="eager"
+              decoding="async"
+            >
+          </div>
 
-      <div class="app-preview">
-        <div class="real-device real-device-hero">
-          <img
-            src="assets/jak-home.png"
-            alt="JAK home screen showing the weekly workout goal and a personal record"
-            width="988"
-            height="2220"
-            loading="eager"
-            decoding="async"
-          >
+          <span class="interface-label">
+            Actual app interface
+          </span>
         </div>
       </div>
     </section>
 
-    <section class="section screen-showcase" id="screens">
-      <div class="container">
-        <div class="section-header">
-          <p class="eyebrow">Inside JAK</p>
+    <!-- Workouts -->
 
-          <h2>
-            Designed to stay out of your way.
-          </h2>
-
-          <p class="section-intro">
-            From choosing a workout to recording your final set, JAK keeps the
-            information you need visible and the interaction straightforward.
-          </p>
-        </div>
-
-        <div class="showcase-grid">
-          <article class="showcase-card showcase-card-wide">
-            <a
-              class="screenshot-window screenshot-window-workouts"
-              href="assets/jak-workouts.png"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open the full JAK workouts screenshot"
-            >
+    <section
+      class="product-section product-section-tone-one"
+      id="workouts"
+    >
+      <div class="container product-layout">
+        <div class="product-visual">
+          <a
+            class="phone-stage"
+            href="assets/jak-workouts.png"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open the full JAK workouts screenshot"
+          >
+            <div class="phone-frame product-phone">
               <img
                 src="assets/jak-workouts.png"
-                alt="The JAK workouts screen with Quick Workout and favorite workouts"
+                alt="The JAK workouts screen with Quick Workout and favorite routines"
                 width="988"
                 height="2220"
                 loading="lazy"
                 decoding="async"
               >
-            </a>
-
-            <div class="showcase-copy">
-              <span class="showcase-number">01</span>
-
-              <h3>
-                Start with a plan — or without one.
-              </h3>
-
-              <p>
-                Keep your favorite routines close, organize your workouts and
-                use Quick Workout whenever you want to start training without
-                preparing a routine first.
-              </p>
-
-              <ul class="showcase-points">
-                <li>Quick Workout is always ready</li>
-                <li>Favorite routines remain easy to reach</li>
-                <li>Create and organize workouts your way</li>
-              </ul>
             </div>
-          </article>
+          </a>
+        </div>
 
-          <article class="showcase-card">
-            <a
-              class="screenshot-window screenshot-window-active"
-              href="assets/jak-active-workout.png"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open the full active workout screenshot"
-            >
+        <div class="product-content">
+          <span class="product-number">01</span>
+
+          <p class="eyebrow">Flexible workouts</p>
+
+          <h2>
+            Start with a plan—or without one.
+          </h2>
+
+          <p>
+            Keep your favorite routines close, organize your workouts and use
+            Quick Workout whenever you want to start training without
+            preparing a routine first.
+          </p>
+
+          <ul class="product-points">
+            <li>Quick Workout is always ready</li>
+            <li>Favorite routines remain easy to reach</li>
+            <li>Create and organize workouts your way</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Active workout -->
+
+    <section
+      class="product-section product-section-tone-two"
+      id="logging"
+    >
+      <div class="container product-layout product-layout-reverse">
+        <div class="product-visual">
+          <a
+            class="phone-stage"
+            href="assets/jak-active-workout.png"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open the full active workout screenshot"
+          >
+            <div class="phone-frame product-phone">
               <img
                 src="assets/jak-active-workout.png"
                 alt="An active workout in JAK showing sets, weights and repetitions"
@@ -824,30 +897,49 @@
                 loading="lazy"
                 decoding="async"
               >
-            </a>
-
-            <div class="showcase-copy">
-              <span class="showcase-number">02</span>
-
-              <h3>
-                Fast logging while you train.
-              </h3>
-
-              <p>
-                Log every set in seconds, 
-                with your previous performance close at hand.
-              </p>
             </div>
-          </article>
+          </a>
+        </div>
 
-          <article class="showcase-card">
-            <a
-              class="screenshot-window screenshot-window-analysis"
-              href="assets/jak-analysis.png"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open the full JAK analysis screenshot"
-            >
+        <div class="product-content">
+          <span class="product-number">02</span>
+
+          <p class="eyebrow">Focused workout logging</p>
+
+          <h2>
+            Fast logging while you train.
+          </h2>
+
+          <p>
+            Log every set in seconds, with your previous performance close at
+            hand.
+          </p>
+
+          <ul class="product-points">
+            <li>Record weights and repetitions without leaving the workout</li>
+            <li>Use previous values as a clear reference</li>
+            <li>Move smoothly between exercises and sets</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Analysis -->
+
+    <section
+      class="product-section product-section-tone-three"
+      id="progress"
+    >
+      <div class="container product-layout">
+        <div class="product-visual">
+          <a
+            class="phone-stage"
+            href="assets/jak-analysis.png"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open the full JAK analysis screenshot"
+          >
+            <div class="phone-frame product-phone">
               <img
                 src="assets/jak-analysis.png"
                 alt="The JAK exercise analysis screen showing progress over time"
@@ -856,26 +948,36 @@
                 loading="lazy"
                 decoding="async"
               >
-            </a>
-
-            <div class="showcase-copy">
-              <span class="showcase-number">03</span>
-
-              <h3>
-                Progress you can understand.
-              </h3>
-
-              <p>
-                Review exercise history, repetitions, weight, volume, personal
-                bests and completed sessions directly inside JAK.
-              </p>
             </div>
-          </article>
+          </a>
+        </div>
+
+        <div class="product-content">
+          <span class="product-number">03</span>
+
+          <p class="eyebrow">Training insights</p>
+
+          <h2>
+            Progress you can understand.
+          </h2>
+
+          <p>
+            Follow your performance over time and see the information that
+            matters for each exercise.
+          </p>
+
+          <ul class="product-points">
+            <li>Compare repetitions, weight and training volume</li>
+            <li>Review personal bests and completed sessions</li>
+            <li>Open the relevant workout directly from your analysis</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="section" id="features">
+    <!-- Features -->
+
+    <section class="section features-section" id="features">
       <div class="container">
         <div class="section-header">
           <p class="eyebrow">Built for the workout</p>
@@ -961,7 +1063,9 @@
       </div>
     </section>
 
-    <section class="section" id="privacy">
+    <!-- Privacy -->
+
+    <section class="section privacy-section" id="privacy">
       <div class="container">
         <div class="privacy-card">
           <div>
