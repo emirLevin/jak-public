@@ -3,227 +3,781 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Privacy Policy for the JAK workout application.">
+
+  <meta
+    name="description"
+    content="JAK is a private, focused workout tracker for Android."
+  >
+  <meta name="theme-color" content="#1E2429">
   <meta name="robots" content="index, follow">
-  <title>JAK Privacy Policy</title>
+
+  <title>JAK – Workout tracking without distractions</title>
+
   <style>
     :root {
       color-scheme: dark;
-      --background: #151b1f;
-      --surface: #20282e;
-      --text: #f4f7f8;
-      --muted: #aeb9bf;
-      --accent: #25d7cf;
-      --border: rgba(255, 255, 255, 0.09);
-      --warning: #ffd37a;
+
+      --background: #1e2429;
+      --background-deep: #181d21;
+      --surface: #2a3038;
+      --surface-light: #323941;
+      --accent: #24e8d6;
+      --accent-dark: #176e6a;
+      --text: #ffffff;
+      --muted: #aeb8bf;
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow: rgba(0, 0, 0, 0.28);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
-      background: var(--background);
+      min-width: 320px;
+      background:
+        radial-gradient(
+          circle at 75% 8%,
+          rgba(36, 232, 214, 0.10),
+          transparent 28rem
+        ),
+        var(--background);
       color: var(--text);
-      font: 16px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      line-height: 1.6;
     }
 
-    main {
-      width: min(760px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 64px 0 80px;
+    a {
+      color: inherit;
     }
 
-    header { margin-bottom: 40px; }
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: relative;
+      z-index: 10;
+      padding: 24px 0;
+    }
+
+    .navigation {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      padding: 5px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: var(--surface);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 160ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--accent);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+      align-items: center;
+      gap: clamp(48px, 9vw, 120px);
+      min-height: 650px;
+      padding: 70px 0 110px;
+    }
 
     .eyebrow {
-      margin: 0 0 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 22px;
       color: var(--accent);
       font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
+      font-weight: 800;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
     }
 
+    .eyebrow::before {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      content: "";
+      box-shadow: 0 0 18px rgba(36, 232, 214, 0.7);
+    }
+
     h1 {
-      margin: 0 0 10px;
-      font-size: clamp(2.2rem, 8vw, 3.6rem);
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .accent-text {
+      color: var(--accent);
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.22rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 36px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+      border: 1px solid transparent;
+      border-radius: 15px;
+      font-weight: 750;
+      text-decoration: none;
+      transition:
+        transform 160ms ease,
+        background-color 160ms ease,
+        border-color 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: var(--background-deep);
+    }
+
+    .button-secondary {
+      border-color: var(--border);
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .availability {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .app-preview {
+      position: relative;
+      width: min(100%, 390px);
+      margin-inline: auto;
+    }
+
+    .app-preview::before {
+      position: absolute;
+      inset: 15% -18%;
+      z-index: -1;
+      border-radius: 50%;
+      background: rgba(36, 232, 214, 0.12);
+      filter: blur(70px);
+      content: "";
+    }
+
+    .phone {
+      padding: 11px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 42px;
+      background: #101417;
+      box-shadow: 0 35px 80px var(--shadow);
+    }
+
+    .phone-screen {
+      min-height: 590px;
+      overflow: hidden;
+      padding: 27px 20px;
+      border-radius: 33px;
+      background: var(--background);
+    }
+
+    .phone-status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    .phone-heading {
+      margin: 34px 0 5px;
+      font-size: 1.7rem;
+      letter-spacing: -0.025em;
+    }
+
+    .phone-subtitle {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .goal-card {
+      padding: 20px;
+      border: 1px solid rgba(36, 232, 214, 0.16);
+      border-radius: 22px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(36, 232, 214, 0.12),
+          rgba(36, 232, 214, 0.02)
+        ),
+        var(--surface);
+    }
+
+    .goal-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .goal-label {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .goal-value {
+      margin: 4px 0 0;
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .goal-badge {
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+
+    .progress {
+      height: 8px;
+      margin-top: 20px;
+      overflow: hidden;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .progress span {
+      display: block;
+      width: 75%;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--accent);
+    }
+
+    .workout-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .workout-card {
+      display: flex;
+      min-height: 68px;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--surface);
+    }
+
+    .workout-icon {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(36, 232, 214, 0.13);
+      color: var(--accent);
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+
+    .workout-card strong {
+      display: block;
+      font-size: 0.91rem;
+    }
+
+    .workout-card small {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 0.73rem;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      max-width: 670px;
+      margin-bottom: 46px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.4rem);
       line-height: 1.08;
       letter-spacing: -0.04em;
     }
 
-    h2 {
-      margin: 42px 0 12px;
-      font-size: 1.28rem;
-      line-height: 1.3;
+    .section-intro {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
     }
 
-    p, li { color: var(--muted); }
-    strong { color: var(--text); }
-    ul { padding-left: 1.25rem; }
-    li + li { margin-top: 7px; }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
 
-    a {
+    .feature-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface);
+    }
+
+    .feature-number {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      margin-bottom: 28px;
+      border-radius: 13px;
+      background: rgba(36, 232, 214, 0.12);
       color: var(--accent);
-      text-underline-offset: 3px;
+      font-size: 0.82rem;
+      font-weight: 800;
     }
 
-    .updated {
+    .feature-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.12rem;
+    }
+
+    .feature-card p {
       margin: 0;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.94rem;
     }
 
-    .summary {
-      margin: 28px 0 0;
-      padding: 22px 24px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
+    .privacy-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 36px;
+      padding: clamp(30px, 6vw, 60px);
+      border: 1px solid rgba(36, 232, 214, 0.2);
+      border-radius: 30px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(36, 232, 214, 0.1),
+          rgba(36, 232, 214, 0.015)
+        ),
+        var(--surface);
     }
 
-    .summary p { margin: 0; }
-
-    .notice {
-      margin-top: 22px;
-      padding: 14px 16px;
-      border: 1px solid rgba(255, 211, 122, 0.35);
-      border-radius: 12px;
-      color: var(--warning);
-      font-size: 0.92rem;
+    .privacy-card h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
     }
 
-    code {
-      padding: 0.12em 0.38em;
-      border-radius: 5px;
-      background: rgba(255, 255, 255, 0.07);
-      color: var(--text);
-      font-size: 0.9em;
+    .privacy-card p {
+      max-width: 680px;
+      margin: 16px 0 0;
+      color: var(--muted);
     }
 
     footer {
-      margin-top: 56px;
-      padding-top: 22px;
+      padding: 34px 0 44px;
       border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.9rem;
     }
 
-    @media (max-width: 520px) {
-      main { padding-top: 40px; }
-      .summary { padding: 18px; }
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    :focus-visible {
+      outline: 3px solid rgba(36, 232, 214, 0.55);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 55px;
+      }
+
+      .app-preview {
+        width: min(100%, 370px);
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .privacy-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .site-header {
+        padding-top: 18px;
+      }
+
+      .nav-links a:not(:last-child) {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 55px 0 80px;
+      }
+
+      .hero-actions {
+        display: grid;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .section {
+        padding: 76px 0;
+      }
+
+      .phone-screen {
+        min-height: 550px;
+      }
+
+      .footer-content {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
+
 <body>
+  <header class="site-header">
+    <div class="container navigation">
+      <a class="brand" href="./" aria-label="JAK homepage">
+        <img
+          class="brand-logo"
+          src="jak-logo.svg"
+          alt=""
+          width="42"
+          height="42"
+        >
+        <span>JAK</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#features">Features</a>
+        <a href="#privacy">Privacy</a>
+        <a href="privacy-policy/">Privacy policy</a>
+      </nav>
+    </div>
+  </header>
+
   <main>
-    <header>
-      <p class="eyebrow">JAK for Android</p>
-      <h1>Privacy Policy</h1>
-      <p class="updated">Effective and last updated: August 13, 2026</p>
+    <section class="container hero">
+      <div>
+        <p class="eyebrow">Workout tracking for Android</p>
 
-      <div class="summary">
-        <p><strong>JAK is private by design.</strong> No account is required. Your workout data is stored locally on your device by default. JAK has no developer-operated backend, does not contain advertising or analytics, and does not sell personal data. If you enable Google Drive backup, JAK sends a backup directly to your own private Google Drive application-data folder.</p>
+        <h1>
+          Train your way.<br>
+          <span class="accent-text">Track what matters.</span>
+        </h1>
+
+        <p class="hero-copy">
+          JAK is a focused workout tracker for building routines, recording
+          sets and following your progress—without accounts, advertising or
+          unnecessary distractions.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#features">
+            Explore JAK
+          </a>
+
+          <a class="button button-secondary" href="privacy-policy/">
+            Read privacy policy
+          </a>
+        </div>
+
+        <p class="availability">
+          Designed for Android. Google Play availability coming soon.
+        </p>
       </div>
-    </header>
 
-    <section>
-      <h2>1. Who is responsible</h2>
-      <p>This Privacy Policy applies to the JAK Android application (package <code>com.zradingolabs.jak</code>), provided by <strong>Zradingo Labs</strong> ("JAK", "we", "us", or "our").</p>
-      <p>Privacy contact: <a href="mailto:zradingolabs@gmail.com">zradingolabs@gmail.com</a>.</p>
+      <div class="app-preview" aria-label="Stylized preview of the JAK app">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="phone-status">
+              <span>JAK</span>
+              <span>Workout ready</span>
+            </div>
+
+            <h2 class="phone-heading">Your training</h2>
+            <p class="phone-subtitle">Stay consistent. Keep progressing.</p>
+
+            <div class="goal-card">
+              <div class="goal-row">
+                <div>
+                  <p class="goal-label">Weekly goal</p>
+                  <p class="goal-value">3 / 4</p>
+                </div>
+
+                <span class="goal-badge">75%</span>
+              </div>
+
+              <div class="progress" aria-hidden="true">
+                <span></span>
+              </div>
+            </div>
+
+            <div class="workout-list">
+              <div class="workout-card">
+                <span class="workout-icon" aria-hidden="true">↗</span>
+                <div>
+                  <strong>Quick Workout</strong>
+                  <small>Start training immediately</small>
+                </div>
+              </div>
+
+              <div class="workout-card">
+                <span class="workout-icon" aria-hidden="true">P</span>
+                <div>
+                  <strong>Push Workout</strong>
+                  <small>6 exercises</small>
+                </div>
+              </div>
+
+              <div class="workout-card">
+                <span class="workout-icon" aria-hidden="true">L</span>
+                <div>
+                  <strong>Leg Workout</strong>
+                  <small>5 exercises</small>
+                </div>
+              </div>
+
+              <div class="workout-card">
+                <span class="workout-icon" aria-hidden="true">H</span>
+                <div>
+                  <strong>Workout history</strong>
+                  <small>Your progress stays available to you</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>2. Data stored on your device</h2>
-      <p>JAK stores the information needed to provide its workout features locally in the app's private storage. Depending on how you use JAK, this may include:</p>
-      <ul>
-        <li>exercise names, muscle groups, equipment, units and rest-time settings;</li>
-        <li>workout templates, workout names, favorites, icons and exercise order;</li>
-        <li>workout history, dates, start and end times, duration and completion status;</li>
-        <li>sets, repetitions, weights, timed exercise values and superset groupings;</li>
-        <li>exercise or workout comments that you enter; and</li>
-        <li>app preferences, goals, display choices and tutorial status.</li>
-      </ul>
-      <p>This data is processed to provide the app's workout logging, history, analysis, timers, goals, templates and personalization features. We do not receive this locally stored data.</p>
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Built for the workout</p>
+          <h2>Everything you need. Nothing in the way.</h2>
+
+          <p class="section-intro">
+            Create structured routines or start immediately with Quick
+            Workout. JAK keeps logging fast while still giving you the tools
+            needed for detailed training.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-number">01</span>
+            <h3>Flexible workouts</h3>
+            <p>
+              Create workout templates, organize exercises and supersets, or
+              begin an empty Quick Workout and build it as you train.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-number">02</span>
+            <h3>Fast workout logging</h3>
+            <p>
+              Record sets, weights, repetitions and timed exercises with a
+              workflow designed to keep you focused.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-number">03</span>
+            <h3>Timers and rest periods</h3>
+            <p>
+              Use exercise timers, rest timers, countdown sounds and
+              notification controls throughout your workout.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-number">04</span>
+            <h3>History and progress</h3>
+            <p>
+              Review completed workouts, previous values and training goals
+              directly inside the app.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-number">05</span>
+            <h3>Private by design</h3>
+            <p>
+              No JAK account is required. Workout information is stored
+              locally on your device by default.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-number">06</span>
+            <h3>Optional backup</h3>
+            <p>
+              Back up your information to your own private Google Drive
+              application-data folder when you choose to enable it.
+            </p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>3. Google Drive backup</h2>
-      <p>Google Drive backup is optional. JAK remains usable without connecting a Google Account.</p>
-      <p>If you choose to connect Google Drive, JAK requests only the Google Drive <code>drive.appdata</code> permission. This allows JAK to create, read, replace and delete its own backup file in a hidden application-specific folder in your Google Drive. It does not give JAK access to your other Drive files.</p>
-      <p>The backup can contain the workout and settings data described in Section 2. Once enabled, JAK may update the backup after data changes and may perform periodic safety backups while a network connection is available. The backup is transferred directly between the app and Google over HTTPS. It is not routed through or stored on a server operated by us.</p>
-      <p>JAK does <strong>not</strong> request or store your Google email address, Google Account ID, profile name or profile picture. An OAuth access token is obtained through Google Play services and used to make authorized Drive requests. JAK does not save that access token in its own database or preferences. Google and Google Play services may process and cache authorization information under Google's own terms and privacy policy.</p>
-      <p>JAK stores only limited backup state locally: whether Drive backup is connected, the time of the most recent backup and whether the backup is ready.</p>
-      <p>JAK's use of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener noreferrer">Google API Services User Data Policy</a>, including its Limited Use requirements.</p>
-    </section>
+    <section class="section" id="privacy">
+      <div class="container">
+        <div class="privacy-card">
+          <div>
+            <p class="eyebrow">Privacy first</p>
+            <h2>Your workout data belongs to you.</h2>
 
-    <section>
-      <h2>4. Android system backup and device transfer</h2>
-      <p>JAK currently permits Android's system backup and device-transfer features. Depending on your Android version, device manufacturer and Google Account settings, Android may automatically back up app data to a private area associated with your Google Account or transfer it to a new device. This process is controlled by Android and Google, not by a JAK-operated server.</p>
-      <p>You can manage Android backup through your device and Google Account settings. Google describes its handling of Android backups in its <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Privacy Policy</a> and Android documentation.</p>
-    </section>
+            <p>
+              JAK has no developer-operated backend and does not include
+              advertising or behavioral analytics. Google Drive backup is
+              optional and can be disconnected whenever you choose.
+            </p>
+          </div>
 
-    <section>
-      <h2>5. Manual export and import</h2>
-      <p>JAK lets you export your data to a JSON file and import a previously exported file. You choose the file location through Android's system file picker. Files saved to storage or another service you select are then governed by the security and privacy practices of that storage location or service. We do not receive exported files.</p>
+          <a class="button button-primary" href="privacy-policy/">
+            View privacy policy
+          </a>
+        </div>
+      </div>
     </section>
-
-    <section>
-      <h2>6. Data we do not collect for our own purposes</h2>
-      <p>JAK does not use a developer-operated backend and does not include advertising, behavioral analytics or crash-reporting services. We do not collect data for advertising, profiling, marketing or sale, and we do not sell or rent personal data.</p>
-      <p>JAK does not request access to your location, contacts, camera, microphone, photos or advertising ID.</p>
-    </section>
-
-    <section>
-      <h2>7. Permissions</h2>
-      <p>JAK uses Android permissions only to provide app functionality:</p>
-      <ul>
-        <li><strong>Notifications</strong> show active workouts, current sets and rest timers.</li>
-        <li><strong>Vibration</strong> provides optional timer alerts.</li>
-        <li><strong>Internet and network state</strong> are used for optional Google authorization and Drive backup.</li>
-        <li><strong>Wake lock, foreground service and boot scheduling</strong> may be used by Android components to keep workout controls and scheduled backups reliable.</li>
-        <li><strong>Battery optimization access</strong> can be requested to help timers remain reliable when the screen is off.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>8. Service providers</h2>
-      <p>Google provides the optional authorization, Google Drive and Android system-backup services described above. When these services are used, Google may receive technical information necessary to provide and secure them, such as authorization information, network information and request metadata. Google's processing is governed by the <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google Privacy Policy</a> and applicable Google terms.</p>
-    </section>
-
-    <section>
-      <h2>9. Security</h2>
-      <p>Local data is kept in Android's app-private storage. Google Drive requests use OAuth authorization and HTTPS encryption in transit, and JAK requests the narrow application-data scope rather than general Drive access.</p>
-      <p>No system can guarantee absolute security. Protect access to your device and Google Account, and store manual export files only in locations you trust. JAK does not add separate application-level encryption to manual exports or to the JSON backup before it is sent to Google Drive; those copies rely on the protections of your device, chosen storage provider and Google Account.</p>
-    </section>
-
-    <section>
-      <h2>10. Retention and deletion</h2>
-      <ul>
-        <li><strong>Local data:</strong> remains on your device until you delete it in JAK, clear the app's storage or uninstall the app. Android system backups may remain separately according to Android and Google backup settings and retention rules.</li>
-        <li><strong>Google Drive backup:</strong> remains in your private Drive application-data folder until it is replaced or deleted. Using JAK's disconnect option requests deletion of JAK's Drive backup and revokes the app's authorization. You can also remove the app's stored data or access through your Google Account.</li>
-        <li><strong>Manual exports:</strong> remain wherever you saved them until you delete them.</li>
-        <li><strong>Developer servers:</strong> we retain no copy because JAK has no developer-operated server receiving your workout data.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>11. Your choices</h2>
-      <p>You can use JAK without a JAK account or Google Drive backup. You may edit or delete workout information inside the app, export your data, disconnect Drive backup, clear app storage or uninstall JAK. For privacy questions or assistance, contact <a href="mailto:zradingolabs@gmail.com">zradingolabs@gmail.com</a>.</p>
-    </section>
-
-    <section>
-      <h2>12. Children</h2>
-      <p>JAK is a general workout utility and is not directed to children. We do not knowingly collect personal information from children through a developer-operated service. If you believe a child has provided information in a way that requires action from us, contact us using the address above.</p>
-    </section>
-
-    <section>
-      <h2>13. Changes to this policy</h2>
-      <p>We may update this policy if JAK's features or data practices change. The current version will be published at this page with an updated effective date. Material changes will be communicated where required.</p>
-    </section>
-
-    <footer>
-      <p>JAK Privacy Policy · Package <code>com.zradingolabs.jak</code></p>
-    </footer>
   </main>
+
+  <footer>
+    <div class="container footer-content">
+      <span>© 2026 Zradingo Labs. JAK for Android.</span>
+
+      <div class="footer-links">
+        <a href="privacy-policy/">Privacy policy</a>
+        <a href="mailto:zradingolabs@gmail.com">Contact</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
