@@ -1,1 +1,705 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="description"
+    content="Terms of Service for the JAK workout application."
+  >
+  <meta name="theme-color" content="#1E2429">
+  <meta name="robots" content="index, follow">
+
+  <title>Terms of Service – JAK</title>
+
+  <style>
+    :root {
+      color-scheme: dark;
+
+      --background: #1e2429;
+      --background-deep: #181d21;
+      --surface: #2a3038;
+      --surface-light: #323941;
+      --accent: #24e8d6;
+      --text: #ffffff;
+      --muted: #aeb8bf;
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow: rgba(0, 0, 0, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(
+          circle at 75% 4%,
+          rgba(36, 232, 214, 0.08),
+          transparent 28rem
+        ),
+        var(--background);
+      color: var(--text);
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      text-decoration-thickness: 2px;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      padding: 24px 0;
+    }
+
+    .navigation {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      display: block;
+      width: 42px;
+      height: 42px;
+      padding: 5px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: var(--surface);
+    }
+
+    .back-link {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    .terms-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 760px);
+      justify-content: center;
+      gap: clamp(40px, 8vw, 90px);
+      padding: 70px 0 100px;
+    }
+
+    .contents {
+      position: sticky;
+      top: 28px;
+      align-self: start;
+    }
+
+    .contents-label {
+      margin: 0 0 16px;
+      color: var(--accent);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .contents ol {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contents a {
+      display: block;
+      padding: 5px 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.35;
+      text-decoration: none;
+    }
+
+    .contents a:hover,
+    .contents a:focus-visible {
+      color: var(--accent);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.8rem, 8vw, 5.3rem);
+      line-height: 1;
+      letter-spacing: -0.055em;
+    }
+
+    .updated {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .summary {
+      margin: 34px 0 0;
+      padding: 26px 28px;
+      border: 1px solid rgba(36, 232, 214, 0.18);
+      border-radius: 22px;
+      background:
+        linear-gradient(
+          140deg,
+          rgba(36, 232, 214, 0.1),
+          rgba(36, 232, 214, 0.015)
+        ),
+        var(--surface);
+      box-shadow: 0 20px 45px var(--shadow);
+    }
+
+    .summary p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .summary strong {
+      color: var(--text);
+    }
+
+    .terms-section {
+      scroll-margin-top: 30px;
+      margin-top: 54px;
+      padding-top: 1px;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      color: var(--text);
+      font-size: 1.32rem;
+      line-height: 1.3;
+      letter-spacing: -0.018em;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+    }
+
+    p {
+      margin: 0 0 16px;
+    }
+
+    strong {
+      color: var(--text);
+    }
+
+    ul {
+      margin: 18px 0;
+      padding-left: 1.25rem;
+    }
+
+    li {
+      padding-left: 0.25rem;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    li::marker {
+      color: var(--accent);
+    }
+
+    code {
+      padding: 0.12em 0.38em;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.9em;
+    }
+
+    .legal-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .legal-links a {
+      font-weight: 650;
+    }
+
+    .terms-footer {
+      margin-top: 65px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .terms-footer p {
+      margin: 0;
+    }
+
+    :focus-visible {
+      outline: 3px solid rgba(36, 232, 214, 0.55);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 900px) {
+      .terms-layout {
+        grid-template-columns: minmax(0, 760px);
+      }
+
+      .contents {
+        position: static;
+        padding: 20px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: var(--surface);
+      }
+
+      .contents ol {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .site-header {
+        padding-top: 18px;
+      }
+
+      .back-link {
+        font-size: 0.84rem;
+      }
+
+      .terms-layout {
+        padding: 48px 0 75px;
+      }
+
+      .contents ol {
+        grid-template-columns: 1fr;
+      }
+
+      .summary {
+        padding: 21px;
+      }
+
+      .terms-section {
+        margin-top: 45px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container navigation">
+      <a class="brand" href="../" aria-label="JAK homepage">
+        <img
+          class="brand-logo"
+          src="../jak-logo.svg"
+          alt=""
+          width="42"
+          height="42"
+        >
+        <span>JAK</span>
+      </a>
+
+      <a class="back-link" href="../">← Application homepage</a>
+    </div>
+  </header>
+
+  <main class="container terms-layout">
+    <nav class="contents" aria-label="Terms of Service contents">
+      <p class="contents-label">Contents</p>
+
+      <ol>
+        <li><a href="#agreement">1. Agreement to these terms</a></li>
+        <li><a href="#service">2. The JAK service</a></li>
+        <li><a href="#eligibility">3. Eligibility</a></li>
+        <li><a href="#health">4. Health and safety</a></li>
+        <li><a href="#license">5. License and acceptable use</a></li>
+        <li><a href="#data">6. Your data and backups</a></li>
+        <li><a href="#third-party">7. Third-party services</a></li>
+        <li><a href="#ownership">8. Intellectual property</a></li>
+        <li><a href="#availability">9. Availability and changes</a></li>
+        <li><a href="#disclaimers">10. Disclaimers</a></li>
+        <li><a href="#liability">11. Limitation of liability</a></li>
+        <li><a href="#termination">12. Termination</a></li>
+        <li><a href="#law">13. Governing law</a></li>
+        <li><a href="#changes">14. Changes to these terms</a></li>
+        <li><a href="#contact">15. Contact</a></li>
+      </ol>
+    </nav>
+
+    <article>
+      <header>
+        <h1>Terms of Service</h1>
+
+        <p class="updated">
+          Effective and last updated: August 13, 2026
+        </p>
+
+        <div class="summary">
+          <p>
+            These Terms of Service govern your use of the JAK Android
+            application. <strong>JAK is a workout tracking tool, not a medical
+            service.</strong> By using JAK, you agree to use the app responsibly
+            and to make your own decisions about training and exercise safety.
+          </p>
+        </div>
+      </header>
+
+      <section class="terms-section" id="agreement">
+        <h2>1. Agreement to these terms</h2>
+
+        <p>
+          These Terms of Service ("Terms") form an agreement between you and
+          <strong>Zradingo Labs</strong> ("JAK", "we", "us", or "our") regarding
+          your use of the JAK Android application (package
+          <code>com.zradingolabs.jak</code>).
+        </p>
+
+        <p>
+          By downloading, installing, accessing or using JAK, you agree to
+          these Terms and our <a href="../privacy-policy/">Privacy Policy</a>.
+          If you do not agree, do not use the app.
+        </p>
+      </section>
+
+      <section class="terms-section" id="service">
+        <h2>2. The JAK service</h2>
+
+        <p>
+          JAK provides tools for planning, recording and reviewing workouts.
+          Features may include workout templates, Quick Workout, exercises,
+          sets, repetitions, weights, timers, rest periods, goals, history,
+          analysis, comments, manual export and import, and optional Google
+          Drive backup.
+        </p>
+
+        <p>
+          No JAK account is required. The core app remains usable without
+          connecting a Google Account. Some features may depend on your device,
+          Android version, permissions, network connection or third-party
+          services.
+        </p>
+      </section>
+
+      <section class="terms-section" id="eligibility">
+        <h2>3. Eligibility</h2>
+
+        <p>
+          You may use JAK only if you are legally capable of agreeing to these
+          Terms. If you are under the age of legal majority where you live, you
+          must have permission from a parent or legal guardian and use the app
+          under appropriate supervision.
+        </p>
+      </section>
+
+      <section class="terms-section" id="health">
+        <h2>4. Health and safety</h2>
+
+        <p>
+          JAK is a general workout utility. It does not provide medical advice,
+          diagnosis, treatment, physiotherapy, coaching or emergency services.
+          Information recorded or displayed in the app is not a substitute for
+          advice from a qualified healthcare or fitness professional.
+        </p>
+
+        <ul>
+          <li>
+            Consult a qualified professional before beginning or changing an
+            exercise program if you have health concerns, injuries or relevant
+            medical conditions.
+          </li>
+          <li>
+            Use suitable equipment, surroundings, technique and supervision.
+          </li>
+          <li>
+            Stop exercising and seek appropriate assistance if you experience
+            pain, dizziness, breathing difficulty or other concerning symptoms.
+          </li>
+          <li>
+            Do not rely on JAK for emergencies. Contact local emergency services
+            when urgent help is needed.
+          </li>
+        </ul>
+
+        <p>
+          You remain responsible for selecting exercises, weights, repetitions,
+          durations and rest periods that are appropriate for you.
+        </p>
+      </section>
+
+      <section class="terms-section" id="license">
+        <h2>5. License and acceptable use</h2>
+
+        <p>
+          Subject to these Terms, Zradingo Labs grants you a limited,
+          non-exclusive, non-transferable, revocable license to install and use
+          JAK for your personal, lawful use on supported devices that you own or
+          control.
+        </p>
+
+        <p>You must not:</p>
+
+        <ul>
+          <li>use JAK for unlawful, fraudulent or harmful purposes;</li>
+          <li>
+            attempt to interfere with, disable, overload or bypass the app's
+            operation or security;
+          </li>
+          <li>
+            reverse engineer, decompile, modify or distribute the app except
+            where applicable law expressly permits it;
+          </li>
+          <li>
+            remove or alter copyright, trademark or other ownership notices;
+            or
+          </li>
+          <li>
+            use JAK or its assets to create a misleading impression of
+            affiliation with Zradingo Labs.
+          </li>
+        </ul>
+      </section>
+
+      <section class="terms-section" id="data">
+        <h2>6. Your data and backups</h2>
+
+        <p>
+          You retain responsibility for the workout information and other
+          content you enter into JAK. You grant us only the technical permission
+          necessary for the app to process that information on your device and,
+          when you enable it, transfer a backup to your own Google Drive
+          application-data folder.
+        </p>
+
+        <p>
+          You are responsible for the accuracy of your information and for
+          maintaining any backups you consider necessary. Device failure,
+          uninstalling the app, clearing app storage, operating-system behavior,
+          loss of access to a Google Account or third-party service problems may
+          result in data loss.
+        </p>
+
+        <p>
+          JAK offers manual export and optional Google Drive backup as
+          convenience features, but we cannot guarantee that every backup,
+          restore, export or import will always complete successfully. More
+          information about data handling is available in our
+          <a href="../privacy-policy/">Privacy Policy</a>.
+        </p>
+      </section>
+
+      <section class="terms-section" id="third-party">
+        <h2>7. Third-party services</h2>
+
+        <p>
+          JAK may interact with services provided by Google, including Google
+          Play, Google authorization, Google Drive and Android system backup.
+          Your use of those services is also governed by Google's applicable
+          terms and policies. We do not control and are not responsible for the
+          availability, operation or independent practices of third-party
+          services.
+        </p>
+
+        <p>
+          Google Drive backup is optional. If you disconnect it, JAK requests
+          deletion of its Drive backup and revocation of the app's authorization
+          as described in the Privacy Policy.
+        </p>
+      </section>
+
+      <section class="terms-section" id="ownership">
+        <h2>8. Intellectual property</h2>
+
+        <p>
+          JAK, including its software, visual design, branding, logo, text and
+          other materials supplied with the app, is owned by Zradingo Labs or
+          its licensors and is protected by applicable intellectual-property
+          laws. These Terms do not transfer ownership of JAK or its materials to
+          you.
+        </p>
+
+        <p>
+          Android, Google Play and Google Drive are trademarks or services of
+          Google LLC. Their use does not imply sponsorship or endorsement of
+          JAK by Google.
+        </p>
+      </section>
+
+      <section class="terms-section" id="availability">
+        <h2>9. Availability and changes to JAK</h2>
+
+        <p>
+          We may update, improve, change, suspend or discontinue features of JAK
+          to maintain the app, address security or compatibility issues, comply
+          with law or develop the service. We do not guarantee that every
+          feature will be available on every device or remain unchanged.
+        </p>
+
+        <p>
+          Updates may be required to continue using JAK. We may stop supporting
+          old app or Android versions where continued support is no longer
+          practical or secure.
+        </p>
+      </section>
+
+      <section class="terms-section" id="disclaimers">
+        <h2>10. Disclaimers</h2>
+
+        <p>
+          To the extent permitted by applicable law, JAK is provided "as is"
+          and "as available". We do not promise that the app will always be
+          uninterrupted, error-free, compatible with every device, or that
+          timers, notifications, calculations, backups or other results will
+          always be complete or accurate.
+        </p>
+
+        <p>
+          Nothing in these Terms excludes warranties, remedies or other rights
+          that cannot lawfully be excluded, including mandatory consumer rights
+          that apply to you.
+        </p>
+      </section>
+
+      <section class="terms-section" id="liability">
+        <h2>11. Limitation of liability</h2>
+
+        <p>
+          To the extent permitted by applicable law, Zradingo Labs is not liable
+          for indirect, incidental, special or consequential loss arising from
+          your use of or inability to use JAK, including loss of workout records,
+          progress information or backup data.
+        </p>
+
+        <p>
+          We are not responsible for injuries or losses caused by exercise
+          choices, technique, equipment, surroundings, failure to obtain
+          professional advice, or reliance on JAK as medical or safety guidance.
+          This limitation does not apply where liability cannot lawfully be
+          limited or excluded.
+        </p>
+      </section>
+
+      <section class="terms-section" id="termination">
+        <h2>12. Termination</h2>
+
+        <p>
+          You may stop using JAK at any time. You can disconnect Google Drive,
+          clear app storage or uninstall the app. Please export or back up any
+          information you wish to retain before deleting local data.
+        </p>
+
+        <p>
+          We may terminate or restrict the license granted under these Terms if
+          you materially violate them or if this is reasonably necessary for
+          legal or security reasons. Sections that by their nature should
+          continue after termination remain effective.
+        </p>
+      </section>
+
+      <section class="terms-section" id="law">
+        <h2>13. Governing law and disputes</h2>
+
+        <p>
+          These Terms are governed by Swedish law, without regard to
+          conflict-of-law principles. If you are a consumer, this choice does
+          not deprive you of mandatory protections provided by the law of the
+          country where you live.
+        </p>
+
+        <p>
+          Please contact us first so that we can try to resolve any concern. A
+          dispute may be brought before the competent courts of Sweden, unless
+          mandatory consumer law gives you the right to bring it elsewhere or
+          use another dispute-resolution procedure.
+        </p>
+      </section>
+
+      <section class="terms-section" id="changes">
+        <h2>14. Changes to these terms</h2>
+
+        <p>
+          We may update these Terms when JAK, applicable law or our practices
+          change. The current version will be published on this page with an
+          updated effective date. Material changes will be communicated where
+          required. Your continued use of JAK after updated Terms take effect
+          constitutes acceptance where permitted by law.
+        </p>
+      </section>
+
+      <section class="terms-section" id="contact">
+        <h2>15. Contact</h2>
+
+        <p>
+          JAK is provided by <strong>Zradingo Labs</strong>. For questions about
+          these Terms or the app, contact
+          <a href="mailto:zradingolabs@gmail.com">
+            zradingolabs@gmail.com
+          </a>.
+        </p>
+
+        <div class="legal-links">
+          <a href="../">Application homepage</a>
+          <a href="../privacy-policy/">Privacy Policy</a>
+        </div>
+      </section>
+
+      <footer class="terms-footer">
+        <p>
+          JAK Terms of Service · Package
+          <code>com.zradingolabs.jak</code>
+        </p>
+      </footer>
+    </article>
+  </main>
+</body>
+</html>
 
