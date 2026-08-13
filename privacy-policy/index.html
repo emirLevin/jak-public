@@ -1,1 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Privacy Policy for the JAK workout application.">
+  <meta name="robots" content="index, follow">
+  <title>JAK Privacy Policy</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #151b1f;
+      --surface: #20282e;
+      --text: #f4f7f8;
+      --muted: #aeb9bf;
+      --accent: #25d7cf;
+      --border: rgba(255, 255, 255, 0.09);
+      --warning: #ffd37a;
+    }
 
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font: 16px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      width: min(760px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 64px 0 80px;
+    }
+
+    header { margin-bottom: 40px; }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2.2rem, 8vw, 3.6rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      margin: 42px 0 12px;
+      font-size: 1.28rem;
+      line-height: 1.3;
+    }
+
+    p, li { color: var(--muted); }
+    strong { color: var(--text); }
+    ul { padding-left: 1.25rem; }
+    li + li { margin-top: 7px; }
+
+    a {
+      color: var(--accent);
+      text-underline-offset: 3px;
+    }
+
+    .updated {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .summary {
+      margin: 28px 0 0;
+      padding: 22px 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .summary p { margin: 0; }
+
+    .notice {
+      margin-top: 22px;
+      padding: 14px 16px;
+      border: 1px solid rgba(255, 211, 122, 0.35);
+      border-radius: 12px;
+      color: var(--warning);
+      font-size: 0.92rem;
+    }
+
+    code {
+      padding: 0.12em 0.38em;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text);
+      font-size: 0.9em;
+    }
+
+    footer {
+      margin-top: 56px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 520px) {
+      main { padding-top: 40px; }
+      .summary { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">JAK for Android</p>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Effective and last updated: August 13, 2026</p>
+
+      <div class="summary">
+        <p><strong>JAK is private by design.</strong> No account is required. Your workout data is stored locally on your device by default. JAK has no developer-operated backend, does not contain advertising or analytics, and does not sell personal data. If you enable Google Drive backup, JAK sends a backup directly to your own private Google Drive application-data folder.</p>
+      </div>
+    </header>
+
+    <section>
+      <h2>1. Who is responsible</h2>
+      <p>This Privacy Policy applies to the JAK Android application (package <code>com.zradingolabs.jak</code>), provided by <strong>Zradingo Labs</strong> ("JAK", "we", "us", or "our").</p>
+      <p>Privacy contact: <a href="mailto:zradingolabs@gmail.com">zradingolabs@gmail.com</a>.</p>
+    </section>
+
+    <section>
+      <h2>2. Data stored on your device</h2>
+      <p>JAK stores the information needed to provide its workout features locally in the app's private storage. Depending on how you use JAK, this may include:</p>
+      <ul>
+        <li>exercise names, muscle groups, equipment, units and rest-time settings;</li>
+        <li>workout templates, workout names, favorites, icons and exercise order;</li>
+        <li>workout history, dates, start and end times, duration and completion status;</li>
+        <li>sets, repetitions, weights, timed exercise values and superset groupings;</li>
+        <li>exercise or workout comments that you enter; and</li>
+        <li>app preferences, goals, display choices and tutorial status.</li>
+      </ul>
+      <p>This data is processed to provide the app's workout logging, history, analysis, timers, goals, templates and personalization features. We do not receive this locally stored data.</p>
+    </section>
+
+    <section>
+      <h2>3. Google Drive backup</h2>
+      <p>Google Drive backup is optional. JAK remains usable without connecting a Google Account.</p>
+      <p>If you choose to connect Google Drive, JAK requests only the Google Drive <code>drive.appdata</code> permission. This allows JAK to create, read, replace and delete its own backup file in a hidden application-specific folder in your Google Drive. It does not give JAK access to your other Drive files.</p>
+      <p>The backup can contain the workout and settings data described in Section 2. Once enabled, JAK may update the backup after data changes and may perform periodic safety backups while a network connection is available. The backup is transferred directly between the app and Google over HTTPS. It is not routed through or stored on a server operated by us.</p>
+      <p>JAK does <strong>not</strong> request or store your Google email address, Google Account ID, profile name or profile picture. An OAuth access token is obtained through Google Play services and used to make authorized Drive requests. JAK does not save that access token in its own database or preferences. Google and Google Play services may process and cache authorization information under Google's own terms and privacy policy.</p>
+      <p>JAK stores only limited backup state locally: whether Drive backup is connected, the time of the most recent backup and whether the backup is ready.</p>
+      <p>JAK's use of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener noreferrer">Google API Services User Data Policy</a>, including its Limited Use requirements.</p>
+    </section>
+
+    <section>
+      <h2>4. Android system backup and device transfer</h2>
+      <p>JAK currently permits Android's system backup and device-transfer features. Depending on your Android version, device manufacturer and Google Account settings, Android may automatically back up app data to a private area associated with your Google Account or transfer it to a new device. This process is controlled by Android and Google, not by a JAK-operated server.</p>
+      <p>You can manage Android backup through your device and Google Account settings. Google describes its handling of Android backups in its <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Privacy Policy</a> and Android documentation.</p>
+    </section>
+
+    <section>
+      <h2>5. Manual export and import</h2>
+      <p>JAK lets you export your data to a JSON file and import a previously exported file. You choose the file location through Android's system file picker. Files saved to storage or another service you select are then governed by the security and privacy practices of that storage location or service. We do not receive exported files.</p>
+    </section>
+
+    <section>
+      <h2>6. Data we do not collect for our own purposes</h2>
+      <p>JAK does not use a developer-operated backend and does not include advertising, behavioral analytics or crash-reporting services. We do not collect data for advertising, profiling, marketing or sale, and we do not sell or rent personal data.</p>
+      <p>JAK does not request access to your location, contacts, camera, microphone, photos or advertising ID.</p>
+    </section>
+
+    <section>
+      <h2>7. Permissions</h2>
+      <p>JAK uses Android permissions only to provide app functionality:</p>
+      <ul>
+        <li><strong>Notifications</strong> show active workouts, current sets and rest timers.</li>
+        <li><strong>Vibration</strong> provides optional timer alerts.</li>
+        <li><strong>Internet and network state</strong> are used for optional Google authorization and Drive backup.</li>
+        <li><strong>Wake lock, foreground service and boot scheduling</strong> may be used by Android components to keep workout controls and scheduled backups reliable.</li>
+        <li><strong>Battery optimization access</strong> can be requested to help timers remain reliable when the screen is off.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>8. Service providers</h2>
+      <p>Google provides the optional authorization, Google Drive and Android system-backup services described above. When these services are used, Google may receive technical information necessary to provide and secure them, such as authorization information, network information and request metadata. Google's processing is governed by the <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google Privacy Policy</a> and applicable Google terms.</p>
+    </section>
+
+    <section>
+      <h2>9. Security</h2>
+      <p>Local data is kept in Android's app-private storage. Google Drive requests use OAuth authorization and HTTPS encryption in transit, and JAK requests the narrow application-data scope rather than general Drive access.</p>
+      <p>No system can guarantee absolute security. Protect access to your device and Google Account, and store manual export files only in locations you trust. JAK does not add separate application-level encryption to manual exports or to the JSON backup before it is sent to Google Drive; those copies rely on the protections of your device, chosen storage provider and Google Account.</p>
+    </section>
+
+    <section>
+      <h2>10. Retention and deletion</h2>
+      <ul>
+        <li><strong>Local data:</strong> remains on your device until you delete it in JAK, clear the app's storage or uninstall the app. Android system backups may remain separately according to Android and Google backup settings and retention rules.</li>
+        <li><strong>Google Drive backup:</strong> remains in your private Drive application-data folder until it is replaced or deleted. Using JAK's disconnect option requests deletion of JAK's Drive backup and revokes the app's authorization. You can also remove the app's stored data or access through your Google Account.</li>
+        <li><strong>Manual exports:</strong> remain wherever you saved them until you delete them.</li>
+        <li><strong>Developer servers:</strong> we retain no copy because JAK has no developer-operated server receiving your workout data.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>11. Your choices</h2>
+      <p>You can use JAK without a JAK account or Google Drive backup. You may edit or delete workout information inside the app, export your data, disconnect Drive backup, clear app storage or uninstall JAK. For privacy questions or assistance, contact <a href="mailto:zradingolabs@gmail.com">zradingolabs@gmail.com</a>.</p>
+    </section>
+
+    <section>
+      <h2>12. Children</h2>
+      <p>JAK is a general workout utility and is not directed to children. We do not knowingly collect personal information from children through a developer-operated service. If you believe a child has provided information in a way that requires action from us, contact us using the address above.</p>
+    </section>
+
+    <section>
+      <h2>13. Changes to this policy</h2>
+      <p>We may update this policy if JAK's features or data practices change. The current version will be published at this page with an updated effective date. Material changes will be communicated where required.</p>
+    </section>
+
+    <footer>
+      <p>JAK Privacy Policy · Package <code>com.zradingolabs.jak</code></p>
+    </footer>
+  </main>
+</body>
+</html>
