@@ -43,7 +43,7 @@
       background:
         radial-gradient(
           circle at 75% 8%,
-          rgba(36, 232, 214, 0.10),
+          rgba(36, 232, 214, 0.1),
           transparent 28rem
         ),
         var(--background);
@@ -219,151 +219,73 @@
 
     .app-preview {
       position: relative;
+      display: flex;
+      justify-content: center;
       width: min(100%, 390px);
       margin-inline: auto;
     }
 
     .app-preview::before {
       position: absolute;
-      inset: 15% -18%;
+      inset: 12% -20%;
       z-index: -1;
       border-radius: 50%;
-      background: rgba(36, 232, 214, 0.12);
-      filter: blur(70px);
+      background: rgba(36, 232, 214, 0.13);
+      filter: blur(75px);
       content: "";
     }
 
-    .phone {
-      padding: 11px;
-      border: 1px solid rgba(255, 255, 255, 0.13);
-      border-radius: 42px;
-      background: #101417;
-      box-shadow: 0 35px 80px var(--shadow);
-    }
-
-    .phone-screen {
-      min-height: 590px;
+    .real-device {
+      position: relative;
       overflow: hidden;
-      padding: 27px 20px;
-      border-radius: 33px;
-      background: var(--background);
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 44px;
+      background: #111619;
+      box-shadow:
+        0 35px 80px rgba(0, 0, 0, 0.34),
+        0 0 0 1px rgba(0, 0, 0, 0.25);
     }
 
-    .phone-status {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: var(--muted);
-      font-size: 0.76rem;
-    }
-
-    .phone-heading {
-      margin: 34px 0 5px;
-      font-size: 1.7rem;
-      letter-spacing: -0.025em;
-    }
-
-    .phone-subtitle {
-      margin: 0 0 24px;
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    .goal-card {
-      padding: 20px;
-      border: 1px solid rgba(36, 232, 214, 0.16);
-      border-radius: 22px;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(36, 232, 214, 0.12),
-          rgba(36, 232, 214, 0.02)
-        ),
-        var(--surface);
-    }
-
-    .goal-row {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .goal-label {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.78rem;
-    }
-
-    .goal-value {
-      margin: 4px 0 0;
-      font-size: 2.2rem;
-      font-weight: 800;
-      line-height: 1;
-    }
-
-    .goal-badge {
-      color: var(--accent);
-      font-size: 0.82rem;
-      font-weight: 750;
-    }
-
-    .progress {
-      height: 8px;
-      margin-top: 20px;
-      overflow: hidden;
+    .real-device::before {
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      z-index: 2;
+      width: 64px;
+      height: 6px;
       border-radius: 99px;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.55);
+      content: "";
+      transform: translateX(-50%);
     }
 
-    .progress span {
-      display: block;
-      width: 75%;
-      height: 100%;
-      border-radius: inherit;
-      background: var(--accent);
+    .real-device img {
+      width: 100%;
+      height: auto;
+      border-radius: 34px;
     }
 
-    .workout-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 20px;
+    .real-device-hero {
+      width: min(100%, 370px);
+      max-height: 710px;
     }
 
-    .workout-card {
-      display: flex;
-      min-height: 68px;
-      align-items: center;
-      gap: 14px;
-      padding: 14px 16px;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background: var(--surface);
-    }
-
-    .workout-icon {
-      display: grid;
-      width: 38px;
-      height: 38px;
-      flex: 0 0 38px;
-      place-items: center;
+    .interface-label {
+      position: absolute;
+      right: -18px;
+      bottom: 50px;
+      z-index: 3;
+      padding: 9px 13px;
+      border: 1px solid rgba(36, 232, 214, 0.25);
       border-radius: 12px;
-      background: rgba(36, 232, 214, 0.13);
+      background: rgba(30, 36, 41, 0.92);
       color: var(--accent);
-      font-size: 1.1rem;
-      font-weight: 900;
-    }
-
-    .workout-card strong {
-      display: block;
-      font-size: 0.91rem;
-    }
-
-    .workout-card small {
-      display: block;
-      margin-top: 2px;
-      color: var(--muted);
-      font-size: 0.73rem;
+      font-size: 0.72rem;
+      font-weight: 750;
+      letter-spacing: 0.04em;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(12px);
     }
 
     .section {
@@ -386,6 +308,140 @@
       margin: 18px 0 0;
       color: var(--muted);
       font-size: 1.05rem;
+    }
+
+    .screen-showcase {
+      overflow: hidden;
+      background:
+        linear-gradient(
+          180deg,
+          transparent,
+          rgba(36, 232, 214, 0.025) 35%,
+          transparent
+        );
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .showcase-card {
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background: var(--surface);
+      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.16);
+    }
+
+    .showcase-card-wide {
+      display: grid;
+      grid-column: 1 / -1;
+      grid-template-columns: minmax(280px, 0.8fr) minmax(320px, 1.2fr);
+      align-items: center;
+    }
+
+    .screenshot-window {
+      position: relative;
+      display: block;
+      height: 520px;
+      overflow: hidden;
+      background: var(--background-deep);
+    }
+
+    .screenshot-window::after {
+      position: absolute;
+      inset: auto 0 0;
+      height: 90px;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          to bottom,
+          transparent,
+          rgba(30, 36, 41, 0.9)
+        );
+      content: "";
+    }
+
+    .screenshot-window img {
+      width: 100%;
+      height: auto;
+      transition:
+        transform 350ms ease,
+        filter 350ms ease;
+      transform-origin: top center;
+    }
+
+    .screenshot-window:hover img {
+      transform: scale(1.018);
+      filter: brightness(1.04);
+    }
+
+    .showcase-card-wide .screenshot-window {
+      height: 650px;
+      border-right: 1px solid var(--border);
+    }
+
+    .showcase-copy {
+      padding: clamp(26px, 5vw, 48px);
+    }
+
+    .showcase-card:not(.showcase-card-wide) .showcase-copy {
+      min-height: 260px;
+    }
+
+    .showcase-number {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      margin-bottom: 25px;
+      border-radius: 13px;
+      background: rgba(36, 232, 214, 0.12);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .showcase-copy h3 {
+      margin: 0;
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      line-height: 1.18;
+      letter-spacing: -0.025em;
+    }
+
+    .showcase-copy p {
+      margin: 16px 0 0;
+      color: var(--muted);
+    }
+
+    .showcase-points {
+      display: grid;
+      gap: 11px;
+      margin: 26px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .showcase-points li {
+      position: relative;
+      padding-left: 25px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .showcase-points li::before {
+      position: absolute;
+      top: 0.64em;
+      left: 1px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      content: "";
+      box-shadow: 0 0 12px rgba(36, 232, 214, 0.42);
     }
 
     .feature-grid {
@@ -496,6 +552,29 @@
         width: min(100%, 370px);
       }
 
+      .showcase-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .showcase-card-wide {
+        display: block;
+        grid-column: auto;
+      }
+
+      .showcase-card-wide .screenshot-window {
+        height: 560px;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .screenshot-window {
+        height: 520px;
+      }
+
+      .interface-label {
+        right: -4px;
+      }
+
       .feature-grid {
         grid-template-columns: 1fr;
       }
@@ -512,6 +591,10 @@
 
       .site-header {
         padding-top: 18px;
+      }
+
+      .nav-links {
+        gap: 16px;
       }
 
       .nav-links a:not(:last-child) {
@@ -531,12 +614,45 @@
         width: 100%;
       }
 
+      .real-device-hero {
+        width: min(91%, 350px);
+        max-height: 680px;
+      }
+
+      .real-device {
+        padding: 8px;
+        border-radius: 38px;
+      }
+
+      .real-device img {
+        border-radius: 30px;
+      }
+
+      .interface-label {
+        right: 0;
+        bottom: 38px;
+      }
+
       .section {
         padding: 76px 0;
       }
 
-      .phone-screen {
-        min-height: 550px;
+      .showcase-card,
+      .showcase-card-wide {
+        border-radius: 23px;
+      }
+
+      .showcase-card-wide .screenshot-window,
+      .screenshot-window {
+        height: 460px;
+      }
+
+      .showcase-copy {
+        padding: 26px 22px 30px;
+      }
+
+      .showcase-card:not(.showcase-card-wide) .showcase-copy {
+        min-height: auto;
       }
 
       .footer-content {
@@ -554,6 +670,10 @@
       *::before,
       *::after {
         transition-duration: 0.01ms !important;
+      }
+
+      .screenshot-window:hover img {
+        transform: none;
       }
     }
   </style>
@@ -574,6 +694,7 @@
       </a>
 
       <nav class="nav-links" aria-label="Main navigation">
+        <a href="#screens">App preview</a>
         <a href="#features">Features</a>
         <a href="#privacy">Privacy</a>
         <a href="privacy-policy/">Privacy policy</a>
@@ -598,7 +719,7 @@
         </p>
 
         <div class="hero-actions">
-          <a class="button button-primary" href="#features">
+          <a class="button button-primary" href="#screens">
             Explore JAK
           </a>
 
@@ -612,66 +733,142 @@
         </p>
       </div>
 
-      <div class="app-preview" aria-label="Stylized preview of the JAK app">
-        <div class="phone">
-          <div class="phone-screen">
-            <div class="phone-status">
-              <span>JAK</span>
-              <span>Workout ready</span>
+      <div class="app-preview">
+        <div class="real-device real-device-hero">
+          <img
+            src="assets/jak-home.png"
+            alt="JAK home screen showing the weekly workout goal and a personal record"
+            width="988"
+            height="2220"
+            loading="eager"
+            decoding="async"
+          >
+        </div>
+
+        <span class="interface-label">
+          Actual app interface
+        </span>
+      </div>
+    </section>
+
+    <section class="section screen-showcase" id="screens">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Inside JAK</p>
+
+          <h2>
+            Designed to stay out of your way.
+          </h2>
+
+          <p class="section-intro">
+            From choosing a workout to recording your final set, JAK keeps the
+            information you need visible and the interaction straightforward.
+          </p>
+        </div>
+
+        <div class="showcase-grid">
+          <article class="showcase-card showcase-card-wide">
+            <a
+              class="screenshot-window screenshot-window-workouts"
+              href="assets/jak-workouts.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open the full JAK workouts screenshot"
+            >
+              <img
+                src="assets/jak-workouts.png"
+                alt="The JAK workouts screen with Quick Workout and favorite workouts"
+                width="988"
+                height="2220"
+                loading="lazy"
+                decoding="async"
+              >
+            </a>
+
+            <div class="showcase-copy">
+              <span class="showcase-number">01</span>
+
+              <h3>
+                Start with a plan—or without one.
+              </h3>
+
+              <p>
+                Keep your favorite routines close, organize your workouts and
+                use Quick Workout whenever you want to start training without
+                preparing a routine first.
+              </p>
+
+              <ul class="showcase-points">
+                <li>Quick Workout is always ready</li>
+                <li>Favorite routines remain easy to reach</li>
+                <li>Create and organize workouts your way</li>
+              </ul>
             </div>
+          </article>
 
-            <h2 class="phone-heading">Your training</h2>
-            <p class="phone-subtitle">Stay consistent. Keep progressing.</p>
+          <article class="showcase-card">
+            <a
+              class="screenshot-window screenshot-window-active"
+              href="assets/jak-active-workout.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open the full active workout screenshot"
+            >
+              <img
+                src="assets/jak-active-workout.png"
+                alt="An active workout in JAK showing sets, weights and repetitions"
+                width="988"
+                height="2220"
+                loading="lazy"
+                decoding="async"
+              >
+            </a>
 
-            <div class="goal-card">
-              <div class="goal-row">
-                <div>
-                  <p class="goal-label">Weekly goal</p>
-                  <p class="goal-value">3 / 4</p>
-                </div>
+            <div class="showcase-copy">
+              <span class="showcase-number">02</span>
 
-                <span class="goal-badge">75%</span>
-              </div>
+              <h3>
+                Fast logging while you train.
+              </h3>
 
-              <div class="progress" aria-hidden="true">
-                <span></span>
-              </div>
+              <p>
+                Previous values remain visible while weights, repetitions and
+                completed sets can be recorded without leaving the workout.
+              </p>
             </div>
+          </article>
 
-            <div class="workout-list">
-              <div class="workout-card">
-                <span class="workout-icon" aria-hidden="true">↗</span>
-                <div>
-                  <strong>Quick Workout</strong>
-                  <small>Start training immediately</small>
-                </div>
-              </div>
+          <article class="showcase-card">
+            <a
+              class="screenshot-window screenshot-window-analysis"
+              href="assets/jak-analysis.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open the full JAK analysis screenshot"
+            >
+              <img
+                src="assets/jak-analysis.png"
+                alt="The JAK exercise analysis screen showing progress over time"
+                width="988"
+                height="2220"
+                loading="lazy"
+                decoding="async"
+              >
+            </a>
 
-              <div class="workout-card">
-                <span class="workout-icon" aria-hidden="true">P</span>
-                <div>
-                  <strong>Push Workout</strong>
-                  <small>6 exercises</small>
-                </div>
-              </div>
+            <div class="showcase-copy">
+              <span class="showcase-number">03</span>
 
-              <div class="workout-card">
-                <span class="workout-icon" aria-hidden="true">L</span>
-                <div>
-                  <strong>Leg Workout</strong>
-                  <small>5 exercises</small>
-                </div>
-              </div>
+              <h3>
+                Progress you can understand.
+              </h3>
 
-              <div class="workout-card">
-                <span class="workout-icon" aria-hidden="true">H</span>
-                <div>
-                  <strong>Workout history</strong>
-                  <small>Your progress stays available to you</small>
-                </div>
-              </div>
+              <p>
+                Review exercise history, repetitions, weight, volume, personal
+                bests and completed sessions directly inside JAK.
+              </p>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
@@ -680,7 +877,10 @@
       <div class="container">
         <div class="section-header">
           <p class="eyebrow">Built for the workout</p>
-          <h2>Everything you need. Nothing in the way.</h2>
+
+          <h2>
+            Everything you need. Nothing in the way.
+          </h2>
 
           <p class="section-intro">
             Create structured routines or start immediately with Quick
@@ -692,7 +892,9 @@
         <div class="feature-grid">
           <article class="feature-card">
             <span class="feature-number">01</span>
+
             <h3>Flexible workouts</h3>
+
             <p>
               Create workout templates, organize exercises and supersets, or
               begin an empty Quick Workout and build it as you train.
@@ -701,7 +903,9 @@
 
           <article class="feature-card">
             <span class="feature-number">02</span>
+
             <h3>Fast workout logging</h3>
+
             <p>
               Record sets, weights, repetitions and timed exercises with a
               workflow designed to keep you focused.
@@ -710,7 +914,9 @@
 
           <article class="feature-card">
             <span class="feature-number">03</span>
+
             <h3>Timers and rest periods</h3>
+
             <p>
               Use exercise timers, rest timers, countdown sounds and
               notification controls throughout your workout.
@@ -719,7 +925,9 @@
 
           <article class="feature-card">
             <span class="feature-number">04</span>
+
             <h3>History and progress</h3>
+
             <p>
               Review completed workouts, previous values and training goals
               directly inside the app.
@@ -728,7 +936,9 @@
 
           <article class="feature-card">
             <span class="feature-number">05</span>
+
             <h3>Private by design</h3>
+
             <p>
               No JAK account is required. Workout information is stored
               locally on your device by default.
@@ -737,7 +947,9 @@
 
           <article class="feature-card">
             <span class="feature-number">06</span>
+
             <h3>Optional backup</h3>
+
             <p>
               Back up your information to your own private Google Drive
               application-data folder when you choose to enable it.
@@ -752,7 +964,10 @@
         <div class="privacy-card">
           <div>
             <p class="eyebrow">Privacy first</p>
-            <h2>Your workout data belongs to you.</h2>
+
+            <h2>
+              Your workout data belongs to you.
+            </h2>
 
             <p>
               JAK has no developer-operated backend and does not include
